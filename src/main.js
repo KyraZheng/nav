@@ -3,19 +3,11 @@ const $lastLi = $siteList.find("li.last");
 const x = localStorage.getItem("x");
 const xObject = JSON.parse(x);
 const hashMap = xObject || [
-  { logo: "W", logoType: "text", url: "https://www.w3.org" },
-  { logo: "G", logoType: "text", url: "https://github.com" },
-  {
-    logo: "P",
-    logoType: "text",
-    url: "https://www.pinterest.com"
-  },
-  {
-    logo: "I",
-    logoType: "text",
-    url: "https://www.iconfont.cn"
-  },
-  { logo: "F", logoType: "text", url: "https://www.figma.com" }
+  { logo: "W", url: "https://www.w3.org" },
+  { logo: "G", url: "https://www.github.com" },
+  { logo: "P", url: "https://www.pinterest.com" },
+  { logo: "I", url: "https://www.iconfont.cn" },
+  { logo: "F", url: "https://www.figma.com" }
 ];
 
 const simplifyUrl = url => {
@@ -31,7 +23,7 @@ const render = () => {
   hashMap.forEach((node, index) => {
     const $li = $(`<li>
             <div class='site'>
-                <div class='logo'>${simplifyUrl(node.url)[0]}</div>
+                <div class='logo'>${node.logo}</div>
                 <div class='link'>${simplifyUrl(node.url)}</div>
                 <div class='close'>
                 <svg class="icon">
@@ -60,8 +52,7 @@ $(".addButton").on("click", () => {
   }
   console.log(url);
   hashMap.push({
-    logo: simplifyUrl(url)[0],
-    logoType: "text",
+    logo: simplifyUrl(url)[0].toUpperCase(),
     url: url
   });
 
@@ -73,10 +64,10 @@ window.onbeforeunload = () => {
   localStorage.setItem("x", string);
 };
 
-$(document).on('keypress', (e) => {
-  const { key } = (e)
+$(document).on("keypress", e => {
+  const { key } = e;
   for (let i = 0; i < hashMap.length; i++) {
-    if (hashMap[i].logo.toLowerCase === key) {
+    if (hashMap[i].logo.toLowerCase() === key) {
       window.open(hashMap[i].url);
     }
   }
