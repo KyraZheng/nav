@@ -124,23 +124,18 @@ var x = localStorage.getItem("x");
 var xObject = JSON.parse(x);
 var hashMap = xObject || [{
   logo: "W",
-  logoType: "text",
   url: "https://www.w3.org"
 }, {
   logo: "G",
-  logoType: "text",
-  url: "https://github.com"
+  url: "https://www.github.com"
 }, {
   logo: "P",
-  logoType: "text",
   url: "https://www.pinterest.com"
 }, {
   logo: "I",
-  logoType: "text",
   url: "https://www.iconfont.cn"
 }, {
   logo: "F",
-  logoType: "text",
   url: "https://www.figma.com"
 }];
 
@@ -151,7 +146,7 @@ var simplifyUrl = function simplifyUrl(url) {
 var render = function render() {
   $siteList.find("li:not(.last)").remove();
   hashMap.forEach(function (node, index) {
-    var $li = $("<li>\n            <div class='site'>\n                <div class='logo'>".concat(simplifyUrl(node.url)[0], "</div>\n                <div class='link'>").concat(simplifyUrl(node.url), "</div>\n                <div class='close'>\n                <svg class=\"icon\">\n                <use xlink:href=\"#icon-login\"></use>\n            </svg>\n                </div>\n            </div>\n        </a>\n    </li>")).insertBefore($lastLi);
+    var $li = $("<li>\n            <div class='site'>\n                <div class='logo'>".concat(node.logo, "</div>\n                <div class='link'>").concat(simplifyUrl(node.url), "</div>\n                <div class='close'>\n                <svg class=\"icon\">\n                <use xlink:href=\"#icon-login\"></use>\n            </svg>\n                </div>\n            </div>\n        </a>\n    </li>")).insertBefore($lastLi);
     $li.on("click", function () {
       window.open(node.url);
     });
@@ -173,8 +168,7 @@ $(".addButton").on("click", function () {
 
   console.log(url);
   hashMap.push({
-    logo: simplifyUrl(url)[0],
-    logoType: "text",
+    logo: simplifyUrl(url)[0].toUpperCase(),
     url: url
   });
   render();
@@ -185,14 +179,14 @@ window.onbeforeunload = function () {
   localStorage.setItem("x", string);
 };
 
-$(document).on('keypress', function (e) {
+$(document).on("keypress", function (e) {
   var key = e.key;
 
   for (var i = 0; i < hashMap.length; i++) {
-    if (hashMap[i].logo.toLowerCase === key) {
+    if (hashMap[i].logo.toLowerCase() === key) {
       window.open(hashMap[i].url);
     }
   }
 });
 },{}]},{},["epB2"], null)
-//# sourceMappingURL=main.250d81d4.js.map
+//# sourceMappingURL=main.54e6614d.js.map

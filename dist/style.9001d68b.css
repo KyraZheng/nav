@@ -22,38 +22,45 @@ img {
   max-width: 100%;
 }
 /* style */
-body {
+html body {
   background-color: #eee;
+  position: relative;
 }
 
 .searchForm {
+  margin-top: 20%;
   display: flex;
-  margin-left: 54px;
-  margin-top: 97px;
 }
+
 @media (min-width: 500px) {
-  .searchForm {
-    display: flex;
-    justify-content: center;
-    max-width: 400px;
-    margin-left: 34.7%;
-    margin-top: 15%;
-  }
   .siteList {
-    display: flex;
-    justify-content: center;
-  }
-  .globalMain {
-    display: flex;
-    margin-left: 16.8%;
-    margin-right: 19%;
-    margin-top: 24px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
   }
   .siteList .site > .close {
     display: none;
   }
+  .tradeMark {
+    left: 15%;
+    transform: rotate(15deg);
+  }
 }
+.globalHeader {
+  display: flex;
+  justify-content: center;
+}
+.tradeMark {
+  position: absolute;
+  display: flex;
+  bottom: 5%;
+  opacity: 0.6;
+  right: 3%;
 
+  z-index: -1;
+  min-width: 400px;
+  min-height: 400px;
+}
 .searchForm > input {
   margin-right: 12px;
   width: 208px;
@@ -74,14 +81,18 @@ body {
 }
 
 .siteList {
+  opacity: 0.8;
   display: flex;
   flex-wrap: wrap;
-  margin-top: 24px;
-  margin-left: 54px;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: center;
 }
 .siteList > li {
-  margin-bottom: 18px;
-  margin-right: 18px;
+  display: flex;
+  margin-top: 18px;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .siteList .site {
@@ -138,4 +149,4 @@ body {
 }
 
 
-/*# sourceMappingURL=style.0a0455de.css.map */
+/*# sourceMappingURL=style.9001d68b.css.map */

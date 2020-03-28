@@ -1,5 +1,11 @@
 {
   "devDependencies": {
     "cssnano": "^4.1.10"
-  }
+  },
+  "name": "nav-1",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:KyraZheng/nav-1.git",
+  "author": "ZQakane <zhenq021@gmail.com>",
+  "license": "MIT"
 }
